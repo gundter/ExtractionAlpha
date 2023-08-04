@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Character/ExtractionCharacterBase.h"
+#include "Characters/ExtractionCharacterBase.h"
 
 // Sets default values
 AExtractionCharacterBase::AExtractionCharacterBase()

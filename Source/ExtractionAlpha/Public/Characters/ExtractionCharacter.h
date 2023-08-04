@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Character/ExtractionCharacterBase.h"
+#include "Characters/ExtractionCharacterBase.h"
 #include "ExtractionCharacter.generated.h"
 
 /**
