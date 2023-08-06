@@ -36,6 +36,9 @@ void AExtractionPlayerController::SetupInputComponent()
 	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AExtractionPlayerController::Move);
 	
 	EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AExtractionPlayerController::Look);
+
+	EnhancedInputComponent->BindAction(AimAction, ETriggerEvent::Started, this, &AExtractionPlayerController::ToggleAim);
+	EnhancedInputComponent->BindAction(AimAction, ETriggerEvent::Completed, this, &AExtractionPlayerController::ToggleAim);
 	
 	EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &AExtractionPlayerController::Jump);
 	EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Completed, this, &AExtractionPlayerController::StopJumping);
@@ -88,4 +91,9 @@ void AExtractionPlayerController::StopJumping()
 			ControlledCharacter->StopJumping();
 		}
 	}
+}
+
+void AExtractionPlayerController::ToggleAim()
+{
+	bIsAiming = bIsAiming ? false : true;
 }

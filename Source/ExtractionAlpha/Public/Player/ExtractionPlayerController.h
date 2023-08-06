@@ -36,9 +36,19 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Input")
 	TObjectPtr<UInputAction> JumpAction;
 
+	UPROPERTY(EditAnywhere, Category = "Input")
+	TObjectPtr<UInputAction> AimAction;
+
+	UPROPERTY(VisibleAnywhere, Category = "Combat")
+	bool bIsAiming;
+
 	void Move(const FInputActionValue& InputActionValue);
 	void Look(const FInputActionValue& InputActionValue);
 	void Jump();
 	void StopJumping();
-	
+	void ToggleAim();
+
+public:
+	UFUNCTION(BlueprintCallable)
+	bool GetIsAiming() const {return bIsAiming;}
 };

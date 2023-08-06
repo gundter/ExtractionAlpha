@@ -6,6 +6,7 @@
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Player/ExtractionPlayerController.h"
 
 AExtractionCharacter::AExtractionCharacter()
 {
@@ -27,6 +28,16 @@ AExtractionCharacter::AExtractionCharacter()
 void AExtractionCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+}
+
+AExtractionPlayerController* AExtractionCharacter::GetExtractionPlayerController() const
+{
+	if (AExtractionPlayerController* ExtractionPlayerController = Cast<AExtractionPlayerController>(Controller))
+	{
+		return ExtractionPlayerController;
+	}
+
+	return nullptr;
 }
 
 void AExtractionCharacter::Tick(float DeltaSeconds)

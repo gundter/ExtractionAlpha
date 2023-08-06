@@ -6,6 +6,7 @@
 #include "Characters/ExtractionCharacterBase.h"
 #include "ExtractionCharacter.generated.h"
 
+class AExtractionPlayerController;
 class UCameraComponent;
 class USpringArmComponent;
 /**
@@ -24,8 +25,11 @@ protected:
 private:
 
 	UPROPERTY(VisibleAnywhere, Category = "Camera")
-	UCameraComponent* FollowCamera;
+	TObjectPtr<UCameraComponent> FollowCamera;
 
 public:
 	UCameraComponent* GetFollowCamera() const {return FollowCamera;}
+
+	UFUNCTION(BlueprintCallable)
+	AExtractionPlayerController* GetExtractionPlayerController() const;
 };
