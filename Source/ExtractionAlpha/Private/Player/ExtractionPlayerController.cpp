@@ -5,6 +5,8 @@
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
 #include "GameFramework/Character.h"
+#include "GameFramework/CharacterMovementComponent.h"
+#include "Net/UnrealNetwork.h"
 
 AExtractionPlayerController::AExtractionPlayerController()
 {
@@ -96,4 +98,11 @@ void AExtractionPlayerController::StopJumping()
 void AExtractionPlayerController::ToggleAim()
 {
 	bIsAiming = bIsAiming ? false : true;
+	if (APawn* ControlledPawn = GetPawn<APawn>())
+	{
+		if (const ACharacter* ControlledCharacter = Cast<ACharacter>(ControlledPawn))
+		{
+			ControlledCharacter->GetCharacterMovement()->MaxWalkSpeed = bIsAiming ? AimWalkSpeed : BaseWalkSpeed;
+		}
+	}
 }

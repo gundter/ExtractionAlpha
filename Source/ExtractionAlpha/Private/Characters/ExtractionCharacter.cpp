@@ -40,6 +40,16 @@ AExtractionPlayerController* AExtractionCharacter::GetExtractionPlayerController
 	return nullptr;
 }
 
+bool AExtractionCharacter::IsAiming() const
+{
+	if (const AExtractionPlayerController* ExtractionPlayerController = Cast<AExtractionPlayerController>(Controller))
+	{
+		return ExtractionPlayerController->GetIsAiming();
+	}
+
+	return false;
+}
+
 void AExtractionCharacter::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);

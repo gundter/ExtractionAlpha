@@ -42,6 +42,9 @@ private:
 	UPROPERTY(VisibleAnywhere, Category = "Combat")
 	bool bIsAiming;
 
+	float BaseWalkSpeed = 600.f;
+	float AimWalkSpeed = 400.f;
+
 	void Move(const FInputActionValue& InputActionValue);
 	void Look(const FInputActionValue& InputActionValue);
 	void Jump();

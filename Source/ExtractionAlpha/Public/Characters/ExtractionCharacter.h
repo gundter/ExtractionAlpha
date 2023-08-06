@@ -32,4 +32,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	AExtractionPlayerController* GetExtractionPlayerController() const;
+
+	UFUNCTION(BlueprintCallable)
+	bool IsAiming() const;
 };
