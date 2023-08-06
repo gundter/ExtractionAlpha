@@ -22,13 +22,10 @@ public:
 protected:
 	virtual void BeginPlay() override;
 private:
-	UPROPERTY(VisibleAnywhere, Category = "Camera")
-	USpringArmComponent* CameraBoom;
 
 	UPROPERTY(VisibleAnywhere, Category = "Camera")
 	UCameraComponent* FollowCamera;
 
 public:
-	USpringArmComponent* GetCameraBoom() const {return CameraBoom;}
 	UCameraComponent* GetFollowCamera() const {return FollowCamera;}
 };
