@@ -6,6 +6,8 @@
 #include "Characters/ExtractionCharacterBase.h"
 #include "ExtractionCharacter.generated.h"
 
+class UCameraComponent;
+class USpringArmComponent;
 /**
  * 
  */
@@ -13,5 +15,20 @@ UCLASS()
 class EXTRACTIONALPHA_API AExtractionCharacter : public AExtractionCharacterBase
 {
 	GENERATED_BODY()
-	
+
+public:
+	AExtractionCharacter();
+	virtual void Tick(float DeltaSeconds) override;
+protected:
+	virtual void BeginPlay() override;
+private:
+	UPROPERTY(VisibleAnywhere, Category = "Camera")
+	USpringArmComponent* CameraBoom;
+
+	UPROPERTY(VisibleAnywhere, Category = "Camera")
+	UCameraComponent* FollowCamera;
+
+public:
+	USpringArmComponent* GetCameraBoom() const {return CameraBoom;}
+	UCameraComponent* GetFollowCamera() const {return FollowCamera;}
 };
